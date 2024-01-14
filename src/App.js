@@ -1,14 +1,9 @@
-// import logo from './logo.svg';
+import Navbar from './components/Navbar';
 import './App.css';
 
 function App() {
   return (
-    <div className="App">
-        <p>
-          Welcome to Go Service. This is a test for CI/CD.
-        </p>
-          Test By Bhishan Pangeni
-    </div>
+    <Navbar></Navbar>
   );
 }
 
