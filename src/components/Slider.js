@@ -17,24 +17,22 @@ export default function Slider() {
                         </div>
                         <div className="carousel-inner">
                             <div className="carousel-item active">
-                                <img src="https://source.unsplash.com/776x776/?construction" className="d-block w-100"
+                                <img src="https://source.unsplash.com/776x776/?construction" className="d-block w-100 ok"
                                     alt="construction1" />
                             </div>
                             <div className="carousel-item">
-                                <img src="https://source.unsplash.com/776x776/?road" className="d-block w-100" alt="construction2" />
+                                <img src="https://source.unsplash.com/776x776/?road" className="d-block w-100 ok" alt="construction2" />
                             </div>
                             <div className="carousel-item">
-                                <img src="https://source.unsplash.com/776x776/?building" className="d-block w-100"
+                                <img src="https://source.unsplash.com/776x776/?building" className="d-block w-100 ok"
                                     alt="construction3" />
                             </div>
                         </div>
-                        <button className="carousel-control-prev" type="button" data-bs-target="#carouselExampleIndicators"
-                            data-bs-slide="prev">
+                        <button className="carousel-control-prev" type="button" data-bs-target="#carouselExample" data-bs-slide="prev">
                             <span className="carousel-control-prev-icon" aria-hidden="true"></span>
                             <span className="visually-hidden">Previous</span>
                         </button>
-                        <button className="carousel-control-next" type="button" data-bs-target="#carouselExampleIndicators"
-                            data-bs-slide="next">
+                        <button className="carousel-control-next" type="button" data-bs-target="#carouselExample" data-bs-slide="next">
                             <span className="carousel-control-next-icon" aria-hidden="true"></span>
                             <span className="visually-hidden">Next</span>
                         </button>

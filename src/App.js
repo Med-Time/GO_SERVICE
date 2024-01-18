@@ -3,11 +3,24 @@ import Slider from './components/Slider';
 import Form from './components/Form';
 import './App.css';
 import Footer from './components/Footer';
+import React,{ useState } from 'react';
 
 function App() {
+  const [Mode,setMode] = useState('light');
+  const ToggleMode = ()=>{
+    console.log("toggle is called")
+    if(Mode ==='light'){
+      setMode('dark');
+      document.body.style.backgroundColor = 'black';
+    }
+  else{
+    setMode('light');
+    document.body.style.backgroundColor = 'white';
+  }
+  }
   return (
     <>
-    <Navbar />
+    <Navbar mode = {Mode} toggleMode = {ToggleMode}/>
     <Slider />
     <Form/>
     <Footer/>
