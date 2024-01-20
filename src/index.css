@@ -11,6 +11,10 @@ code {
   font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
     monospace;
 }
+.ok{
+  /* width: 420 px; */
+  height: 550px;
+}
 .carousel-item img{
   border-radius: 20px;
 }
