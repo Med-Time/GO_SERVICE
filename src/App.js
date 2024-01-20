@@ -8,7 +8,6 @@ import React,{ useState } from 'react';
 function App() {
   const [Mode,setMode] = useState('light');
   const ToggleMode = ()=>{
-    console.log("toggle is called")
     if(Mode ==='light'){
       setMode('dark');
       document.body.style.backgroundColor = 'black';
