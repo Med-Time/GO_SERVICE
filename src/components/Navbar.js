@@ -32,8 +32,7 @@ export default function navbar() {
               <button className="btn btn-outline-success mx-2" type="submit">Search</button>
             </form> */}
              <Link to="/login">
-            {/*  target = "_blank" */}
-              <button className="btn btn-outline-success mx-2" type="button">Builder</button>
+              <button className="btn btn-outline-success mx-2" type="button">Login</button>
             </Link>
           </div>
       </div>
