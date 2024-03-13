@@ -21,11 +21,12 @@ export default function Slider() {
                                     alt="construction1" />
                             </div>
                             <div className="carousel-item">
-                                <img src="https://source.unsplash.com/776x776/?road" className="d-block w-100 h-fix" alt="construction2" />
+                                <img src="Image/image2.jpeg" className="d-block w-100 h-fix" alt="construction2" />
                             </div>
                             <div className="carousel-item">
-                                <img src="https://source.unsplash.com/776x776/?building" className="d-block w-100 h-fix"
+                                <img src="Image/image3.jpeg" className="d-block w-100 h-fix"
                                     alt="construction3" />
+                                {/* https://source.unsplash.com/776x776/?road,construction */}
                             </div>
                         </div>
                         <button className="carousel-control-prev" type="button" data-bs-target="#carouselExample" data-bs-slide="prev">

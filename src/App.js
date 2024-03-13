@@ -7,6 +7,7 @@ import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
 import Login from './components/Login';
 import About from './components/About';
 import Contact from './components/Contact';
+import FAQ from './components/FAQ';
 
 function App() {
   // const [Mode,setMode] = useState('light');
@@ -21,23 +22,25 @@ function App() {
   // }
   // }
   return (
-    <Router>
-      <Routes>
-        <Route path="/" element={
-          <>
-            <Navbar />
-            <Slider />
-            <Form />
-            <Footer />
-          </>
-        } />
-        <Route path="/login" element={<Login />} />
-        <Route path="/about" element={
-          <> <Navbar /> <About /></>} />
-        <Route path="/contact" element={
-          <> <Navbar /> <Contact /></>} />
-      </Routes>
-    </Router>
+    <>
+      {/* <Navbar /> */}
+      <Router>
+        <Routes>
+          <Route path="/" element={
+            <>
+              <Navbar />
+              <Slider />
+              <Form />
+              <Footer />
+            </>
+          } />
+          <Route path="/login" element={<><Navbar /> <Login /></>} />
+          <Route path="/about" element={<><Navbar /> <About /></>} />
+          <Route path="/faq" element={<><Navbar /> <FAQ /></>} />
+          <Route path="/contact" element={<><Navbar /> <Contact /></>} />
+        </Routes>
+      </Router>
+    </>
   );
 }
 
