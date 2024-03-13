@@ -6,7 +6,7 @@ export default function Form() {
       <div className="row justify-content-center">
         <div className="col-md-6">
           {/* <p className={`fs-1 text-${props.mode === 'light' ? 'success' : 'white'}`}>Complaint Heading</p> */}
-          <p className="fs-1 text-dark">Fill Details</p>
+          <p className="fs-1 text-dark">Your Concerns</p>
           <form>
             <div className="mb-3">
               {/* <label htmlFor="InputName" className={`form-label text-${props.mode === 'light' ? 'black' : 'white'}`}>Name</label> */}
@@ -87,7 +87,6 @@ export default function Form() {
             </table>
           </div>
         </div>
-
       </div>
     </div>
   )

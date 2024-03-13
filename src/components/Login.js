@@ -18,7 +18,7 @@ export default function Login() {
                             <label htmlFor="floatingInput">Email address</label>
                         </div>
                         <div className="form-floating">
-                            <input type="password" className="form-control" id="floatingPassword" placeholder="Password" />
+                            <input type="current-password" className="form-control" id="floatingPassword" placeholder="Password" />
                             <label htmlFor="floatingPassword">Password</label>
                         </div>
 
@@ -30,7 +30,7 @@ export default function Login() {
                         </div>
                         <button className="btn btn-primary w-25 py-2" type="submit">Log in</button>
                         <button className="btn btn-success w-50 py-2 mx-2" type="submit">Create new Account</button>
-                        <p className="mt-5 mb-3 text-body-secondary">Go Service © 2024</p>
+                        <p className="mt-5 mb-3 text-body-secondary">Go Service © 2023-2024</p>
                     </form>
                 </div>
             </div>

@@ -17,7 +17,7 @@ export default function Slider() {
                         </div>
                         <div className="carousel-inner">
                             <div className="carousel-item active">
-                                <img src="https://source.unsplash.com/776x776/?construction" className="d-block w-100 h-fix"
+                                <img src="Image/image1.jpeg" className="d-block w-100 h-fix"
                                     alt="construction1" />
                             </div>
                             <div className="carousel-item">
