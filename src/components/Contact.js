@@ -1,9 +1,9 @@
-import React from 'react'
+import React from 'react';
 
 export default function Contact() {
-    return (
-        <div className="container">
-            <h1>Contact Us</h1>
+    return (<>
+        <p className='h1 m-2'>Contact Us</p>
+        <div className="container d-flex ">
             <div className='w-50'>
                 <form action="#" method="post">
                     <div class="mb-3">
@@ -26,57 +26,30 @@ export default function Contact() {
                     <button type="submit" class="btn btn-primary w-100">Send Message</button>
                 </form>
             </div>
-            <div className="team">
-                <h2>Our Team</h2>
-                <ol>
-                    <li>
-                        <p className='Team Member'>Developer</p>
-                        <img src="team_member_image.jpg" alt="Anmol Bhusal" />
-                        <div className="social-media">
-                            <a href="https://twitter.com/team_member" target="_blank" rel="me noreferrer">
-                                <i className="fab fa-twitter"></i>
-                            </a>
-                            <a href="https://linkedin.com/in/team_member" target="_blank" rel="me noreferrer">
-                                <i className="fab fa-linkedin"></i>
-                            </a>
-                            <a href="https://github.com/team_member" target="_blank" rel="me noreferrer">
-                                <i className="fab fa-github"></i>
-                            </a>
-                        </div>
-                    </li>
-                    <li>
-                        <p className='Team Member'>Developer</p>
-                        <img src="team_member_image.jpg" alt="Bhishan Pangeni" />
-
-                        <div className="social-media">
-                            <a href="https://twitter.com/team_member" target="_blank" rel="me noreferrer">
-                                <i className="fab fa-twitter"></i>
-                            </a>
-                            <a href="https://linkedin.com/in/team_member" target="_blank" rel="me noreferrer">
-                                <i className="fab fa-linkedin"></i>
-                            </a>
-                            <a href="https://github.com/team_member" target="_blank" rel="me noreferrer">
-                                <i className="fab fa-github"></i>
-                            </a>
-                        </div>
-                    </li>
-                    <li>
-                        <p className='Team Member'>Developer</p>
-                        <img src="team_member_image.jpg" alt="Sagar Khadka" />
-                        <div className="social-media">
-                            <a href="https://twitter.com/team_member" target="_blank" rel="me noreferrer">
-                                <i className="fab fa-twitter"></i>
-                            </a>
-                            <a href="https://linkedin.com/in/team_member" target="_blank" rel="me noreferrer">
-                                <i className="fab fa-linkedin"></i>
-                            </a>
-                            <a href="https://github.com/team_member" target="_blank" rel="me noreferrer">
-                                <i className="fab fa-github"></i>
-                            </a>
-                        </div>
-                    </li>
-                </ol>
+            <div className="team flex-column"style={{marginLeft:15}}>
+                <div class="team-member">
+                    <p>
+                        Anmol Bhusal<br />
+                        Phone: +917607665605
+                    </p>
+                        <a href="mailto:anmolbhusal.cd22@bmsce.ac.in?subject=Contact">Send email</a>
+                </div>
+                <div class="team-member">
+                    <p>
+                        Bhishan Pangeni<br />
+                        Phone: +919019979712
+                    </p>
+                    <a href="mailto:bhishan.cd22@bmsce.ac.in?subject=Contact">Send email</a>
+                </div>
+                <div class="team-member">
+                    <p>
+                        Sagar Khadka<br />
+                        Phone: +919764307846
+                    </p>
+                    <a href="mailto:sagar.cd22@bmsce.ac.in?subject=Contact">Send email</a>
+                </div>
             </div>
         </div>
+    </>
     )
 }

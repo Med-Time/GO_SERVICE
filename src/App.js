@@ -8,6 +8,7 @@ import Login from './components/Login';
 import About from './components/About';
 import Contact from './components/Contact';
 import FAQ from './components/FAQ';
+import Education from './components/Education';
 
 function App() {
   // const [Mode,setMode] = useState('light');
@@ -38,6 +39,8 @@ function App() {
           <Route path="/about" element={<><Navbar /> <About /></>} />
           <Route path="/faq" element={<><Navbar /> <FAQ /></>} />
           <Route path="/contact" element={<><Navbar /> <Contact /></>} />
+          <Route path="*" element={<><h1>404 Not Found</h1></>} />
+          <Route path="/education" element={<><Navbar /> <Education/></>} />
         </Routes>
       </Router>
     </>
