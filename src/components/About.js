@@ -3,17 +3,75 @@ import React from 'react'
 export default function About() {
     return (
         <div className="container">
-            <h1>About</h1>
-            <h2>About Go Service</h2>
-            <ol>
-                <li>
-                    <p >Company Profile and Brand:</p>
-                    <p className='details'>GeeksforGeeks is a leading platform that provides computer science resources and coding challenges for programmers and technology enthusiasts, along with interview and exam preparations for upcoming aspirants. With a strong emphasis on enhancing coding skills and knowledge, it has become a trusted destination for over 12 million plus registered users worldwide. The platform offers a vast collection of tutorials,
-                     practice problems, interview tutorials, articles, and courses, covering various domains of computer science.
-                       <br></br> Our exceptional mentors hailing from top colleges & organizations have the ability to guide you on a journey from the humble beginnings of coding to the pinnacle of expertise. Under their guidance watch your skills flourish as we lay the foundation and help you conquer the world of coding.
-                        Our brand is built on the pillars of expertise, accessibility, and community. We strive to empower individuals to enhance their programming skills, to bridge the gap between academia and industry, and provide a supportive community to the learners. GeeksforGeeks is committed to promoting technological advancement and providing opportunities for growth in the ever-evolving field of computer science.</p>
-                </li>
-            </ol>
+            <div className="company">
+                <h1>About</h1>
+                <h2>About Go Service</h2>
+                <ol>
+                    <li>
+                        <p >Company Profile and Brand:</p>
+                        <p className='details'>GoService is </p>
+                    </li>
+                    <li>
+                        <p >Company Mission:</p>
+                        <p className='details'>GoService is </p>
+                    </li>
+                    <li>
+                        <p >Company Vision:</p>
+                        <p className='details'>GoService is </p>
+                    </li>
+                </ol>
+            </div>
+            <div className="team">
+                <h2>Our Team</h2>
+                <ol>
+                    <li>
+                        <p className='Team Member'>Developer</p>
+                        <img src="team_member_image.jpg" alt="Anmol Bhusal" />
+                        <div className="social-media">
+                            <a href="https://twitter.com/team_member" target="_blank" rel="me noreferrer">
+                                <i className="fab fa-twitter"></i>
+                            </a>
+                            <a href="https://linkedin.com/in/team_member" target="_blank" rel="me noreferrer">
+                                <i className="fab fa-linkedin"></i>
+                            </a>
+                            <a href="https://github.com/team_member" target="_blank" rel="me noreferrer">
+                                <i className="fab fa-github"></i>
+                            </a>
+                        </div>
+                    </li>
+                    <li>
+                        <p className='Team Member'>Developer</p>
+                        <img src="team_member_image.jpg" alt="Bhishan Pangeni" />
+
+                        <div className="social-media">
+                            <a href="https://twitter.com/team_member" target="_blank" rel="me noreferrer">
+                                <i className="fab fa-twitter"></i>
+                            </a>
+                            <a href="https://linkedin.com/in/team_member" target="_blank" rel="me noreferrer">
+                                <i className="fab fa-linkedin"></i>
+                            </a>
+                            <a href="https://github.com/team_member" target="_blank" rel="me noreferrer">
+                                <i className="fab fa-github"></i>
+                            </a>
+                        </div>
+                    </li>
+                    <li>
+                        <p className='Team Member'>Developer</p>
+                        <img src="team_member_image.jpg" alt="Sagar Khadka" />
+                        <div className="social-media">
+                            <a href="https://twitter.com/team_member" target="_blank" rel="me noreferrer">
+                                <i className="fab fa-twitter"></i>
+                            </a>
+                            <a href="https://linkedin.com/in/team_member" target="_blank" rel="me noreferrer">
+                                <i className="fab fa-linkedin"></i>
+                            </a>
+                            <a href="https://github.com/team_member" target="_blank" rel="me noreferrer">
+                                <i className="fab fa-github"></i>
+                            </a>
+                        </div>
+                    </li>
+                </ol>
+            </div>
         </div>
     )
 }

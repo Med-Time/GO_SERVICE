@@ -26,6 +26,57 @@ export default function Contact() {
                     <button type="submit" class="btn btn-primary w-100">Send Message</button>
                 </form>
             </div>
+            <div className="team">
+                <h2>Our Team</h2>
+                <ol>
+                    <li>
+                        <p className='Team Member'>Developer</p>
+                        <img src="team_member_image.jpg" alt="Anmol Bhusal" />
+                        <div className="social-media">
+                            <a href="https://twitter.com/team_member" target="_blank" rel="me noreferrer">
+                                <i className="fab fa-twitter"></i>
+                            </a>
+                            <a href="https://linkedin.com/in/team_member" target="_blank" rel="me noreferrer">
+                                <i className="fab fa-linkedin"></i>
+                            </a>
+                            <a href="https://github.com/team_member" target="_blank" rel="me noreferrer">
+                                <i className="fab fa-github"></i>
+                            </a>
+                        </div>
+                    </li>
+                    <li>
+                        <p className='Team Member'>Developer</p>
+                        <img src="team_member_image.jpg" alt="Bhishan Pangeni" />
+
+                        <div className="social-media">
+                            <a href="https://twitter.com/team_member" target="_blank" rel="me noreferrer">
+                                <i className="fab fa-twitter"></i>
+                            </a>
+                            <a href="https://linkedin.com/in/team_member" target="_blank" rel="me noreferrer">
+                                <i className="fab fa-linkedin"></i>
+                            </a>
+                            <a href="https://github.com/team_member" target="_blank" rel="me noreferrer">
+                                <i className="fab fa-github"></i>
+                            </a>
+                        </div>
+                    </li>
+                    <li>
+                        <p className='Team Member'>Developer</p>
+                        <img src="team_member_image.jpg" alt="Sagar Khadka" />
+                        <div className="social-media">
+                            <a href="https://twitter.com/team_member" target="_blank" rel="me noreferrer">
+                                <i className="fab fa-twitter"></i>
+                            </a>
+                            <a href="https://linkedin.com/in/team_member" target="_blank" rel="me noreferrer">
+                                <i className="fab fa-linkedin"></i>
+                            </a>
+                            <a href="https://github.com/team_member" target="_blank" rel="me noreferrer">
+                                <i className="fab fa-github"></i>
+                            </a>
+                        </div>
+                    </li>
+                </ol>
+            </div>
         </div>
     )
 }

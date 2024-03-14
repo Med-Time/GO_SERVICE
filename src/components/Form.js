@@ -22,10 +22,12 @@ export default function Form() {
             </div>
             <div className="mb-3">
               {/* <label htmlFor="releted" className={`form-label text-${props.mode === 'light' ? 'black' : 'white'}`}>Property</label> */}
-              <label htmlFor="releted" className="form-label text-dark">Property</label>
+              <label htmlFor="releted" className="form-label text-dark">Sector</label>
               <select className="form-select" aria-label="Select">
-                <option value="public" defaultValue={'Public'}>Public</option>
-                <option value="private">Private</option>
+                <option value="transportation" defaultValue={'Transportation'}>Transportation</option>
+                <option value="education">Education</option>
+                <option value="health">Health</option>
+                <option value="environment">Environment</option>
               </select>
             </div>
             <div className="mb-3">
