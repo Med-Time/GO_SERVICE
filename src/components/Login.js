@@ -3,12 +3,13 @@ import { Link } from 'react-router-dom'
 export default function Login() {
     return (
         <div className='Container'>
-            <div className='row gx-5'>
-                <div className='col-md-6 d-flex flex-column justify-content-center align-items-center'style={{ height: '70vh' }}>
-                        <div className='h1 text-center'>Go Service</div>
-                        <div className="fs-5 text-end">We are the change we seek for our society</div>
+            <div className='row gx-5 d-flex align-items-center justify-content-center'>
+                <div className='col-lg-6 col-sm-12'>
+                        <div className='h1 text-center'>Go Service
+                        <p className='h6 text-end'>We are the change we seek for our society</p>
+                        </div>
                 </div>
-                <div className='col-md-6 align-items-center' style={{width : '45vw',height: '70vh',marginTop:'10%'}}>
+                <div className='col-md-6 align-items-center login'>
                     <form method='' action=''>
                         <div className="form-floating">
                             <input type="email" className="form-control mb-3" id="floatingInput" placeholder="Email daddress" />

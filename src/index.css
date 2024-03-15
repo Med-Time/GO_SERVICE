@@ -71,6 +71,11 @@ align-items: start;
 .social-media a:hover{
   color: #007bff;
 }
+.login{
+  width: 45%;
+  height: 70vh;
+  margin-top: 10%;
+}
 /* Media Queries */
 @media (max-width: 991px) {
   .team{
@@ -81,5 +86,10 @@ align-items: start;
   }
   .team-member{
     width: 20rem;
+  }
+  .login{
+    width: 90%;
+    height: 70vh;
+    margin-top: 10%;
   }
 }
