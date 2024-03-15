@@ -7,11 +7,9 @@ body {
   -moz-osx-font-smoothing: grayscale;
 }
 
-.h-fix{
-  height: 75vh;
-}
 .carousel-item img{
-  border-radius: 20px;
+  border-radius: 1.4rem;
+  height: 75vh;
 }
 .company{
   display: flex;
@@ -91,5 +89,9 @@ align-items: start;
     width: 90%;
     height: 70vh;
     margin-top: 10%;
+  }
+  .carousel-item img{
+    border-radius: 1.4rem;
+    height: 60vh;
   }
 }

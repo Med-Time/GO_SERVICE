@@ -1,11 +1,52 @@
-import React from 'react'
+import React, { useState, useEffect } from 'react';
 
 export default function Form() {
+  const [data, setData] = useState(null);
+  const [error, setError] = useState(null);
+  const [loading, setLoading] = useState(true);
+
+  useEffect(() => {
+    fetch('https://jsonplaceholder.typicode.com/posts/1')
+      .then((response) => {
+        if (!response.ok) {
+          throw new Error('Network response was not ok');
+        }
+        return response.json();
+      })
+      .then((jsonData) => {
+        setData(jsonData);
+      })
+      .catch((error) => {
+        setError(error);
+      })
+      .finally(() => {
+        setLoading(false);
+      });
+  }, []);
+
+  if (loading) {
+    return <p>Loading...</p>;
+  }
+
+  if (error) {
+    return <p>Error: {error.message}</p>;
+  }
+  const renderdata = () => {
+    return data.map((item, index) => (
+      <tr key={item.id}>
+        <td>{index + 1}</td>
+        <td>{item.name}</td>
+        <td>{item.sector}</td>
+        <td>{item.date}</td>
+        <td>{item.status}</td>
+      </tr>
+    ));
+  };
   return (
     <div className="container">
       <div className="row justify-content-center">
         <div className="col-md-6">
-          <p className="fs-1 text-dark">Your Concerns</p>
+          <p className="h1 text-dark">Your Concerns</p>
           <form method='POST' action='/'>
             <div className="mb-3">
               <label htmlFor="InputName" className="form-label text-dark">Name</label>
@@ -55,28 +96,7 @@ export default function Form() {
                   <th scope="col">Status</th>
                 </tr>
               </thead>
-              <tbody>
-                <tr>
-                  <th scope="row">1</th>
-                  <td>Mark</td>
-                  <td>Otto</td>
-                  <td>@mdo</td>
-                  <td>Finished</td>
-                </tr>
-                <tr>
-                  <th scope="row">2</th>
-                  <td>Jacob</td>
-                  <td>Thornton</td>
-                  <td>@fat</td>
-                  <td>Ongoing</td>
-                </tr>
-                <tr>
-                  <th scope="row">3</th>
-                  <td colSpan="2">Larry the Bird</td>
-                  <td>@twitter</td>
-                  <td>Validated</td>
-                </tr>
-              </tbody>
+              <tbody>{renderdata()}</tbody>
             </table>
           </div>
         </div>
