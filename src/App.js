@@ -10,18 +10,8 @@ import Contact from './components/Contact';
 import FAQ from './components/FAQ';
 import Education from './components/Education';
 
+
 function App() {
-  // const [Mode,setMode] = useState('light');
-  // const ToggleMode = ()=>{
-  //   if(Mode ==='light'){
-  //     setMode('dark');
-  //     document.body.style.backgroundColor = 'black';
-  //   }
-  // else{
-  //   setMode('light');
-  //   document.body.style.backgroundColor = 'white';
-  // }
-  // }
   return (
     <>
       {/* <Navbar /> */}

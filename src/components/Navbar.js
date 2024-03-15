@@ -1,6 +1,8 @@
 import React from 'react'
 import { Link } from 'react-router-dom';
 export default function navbar() {
+  const isLoggedIn = false; // replace with your logic to check if user is logged in or not
+
   return (
     <>
       <nav className="navbar navbar-expand-lg navbar-light bg-light">
@@ -22,11 +24,15 @@ export default function navbar() {
                 <a className="nav-link" href="/contact">Contact Us</a>
               </li>
             </ul>
-             <Link to="/login">
-              <button className="btn btn-outline-success mx-2" type="button">Login</button>
-            </Link>
+            {isLoggedIn ? (
+              <img src="man-dummy" alt="User Face" className="mx-2" />
+            ) : (
+              <Link to="/login">
+                <button className="btn btn-outline-success mx-2" type="button">Login</button>
+              </Link>
+            )}
           </div>
-      </div>
+        </div>
       </nav>
     </>
   )

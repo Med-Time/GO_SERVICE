@@ -74,6 +74,45 @@ align-items: start;
   height: 70vh;
   margin-top: 10%;
 }
+.post{
+  display: flex;
+  flex-direction: column;
+  /* align-items: center; */
+  margin: 2rem 15vw 0 15vw;
+  padding: 10px;
+  border-radius: 20px;
+  box-shadow: 0 0 10px 0 rgba(0,0,0,0.2);
+  background-color: #f5f5f5;
+  width: 70vw;
+}
+.post-head{
+  align-self: start;
+  font-size: 1.5rem;
+  font-weight: 600;
+  margin-bottom: 1rem;
+
+}
+.post-date{
+  text-align: end;
+  font-style: italic;
+  font-size: 1rem;
+  font-weight: 400;
+  margin-bottom: 2rem;
+  
+}
+.post .details{
+  font-size: 1.2rem;
+  margin-bottom: 0rem;
+}
+.post img{
+  height: 30rem;
+  width: 80%;
+  margin-left: 6rem;
+}
+.button-group{
+  display: flex;
+  justify-content: space-between;
+}
 /* Media Queries */
 @media (max-width: 991px) {
   .team{
@@ -93,5 +132,9 @@ align-items: start;
   .carousel-item img{
     border-radius: 1.4rem;
     height: 60vh;
+  }
+  .post img{
+    height: 20rem;
+    margin-left: 2rem;
   }
 }
