@@ -1,3 +1,4 @@
+import React, { useState } from 'react';
 import Navbar from './components/Navbar';
 import Slider from './components/Slider';
 import Form from './components/Form';
@@ -12,25 +13,37 @@ import Education from './components/Education';
 
 
 function App() {
+  const [isLoggedIn, setIsLoggedIn] = useState(false);
+
+  const handleLogin = () => {
+    console.log('Login Successful');
+    setIsLoggedIn(true);
+  };
+
+  const handleLogout = () => {
+    console.log('Logout Successful');
+    setIsLoggedIn(false);
+  };
   return (
     <>
       {/* <Navbar /> */}
       <Router>
+      <Navbar isLoggedIn={isLoggedIn} onLogout={handleLogout} />
         <Routes>
           <Route path="/" element={
             <>
-              <Navbar />
+              
               <Slider />
               <Form />
               <Footer />
             </>
           } />
-          <Route path="/login" element={<><Navbar /> <Login /></>} />
-          <Route path="/about" element={<><Navbar /> <About /></>} />
-          <Route path="/faq" element={<><Navbar /> <FAQ /></>} />
-          <Route path="/contact" element={<><Navbar /> <Contact /></>} />
+          <Route path="/login" element={<> <Login onLogin={handleLogin} /></>} />
+          <Route path="/about" element={<><About /></>} />
+          <Route path="/faq" element={<> <FAQ /></>} />
+          <Route path="/contact" element={<> <Contact /></>} />
           <Route path="*" element={<><h1>404 Not Found</h1></>} />
-          <Route path="/education" element={<><Navbar /> <Education/></>} />
+          <Route path="/education" element={<> <Education/></>} />
         </Routes>
       </Router>
     </>
