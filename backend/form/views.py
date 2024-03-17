@@ -4,6 +4,16 @@ from rest_framework.decorators import api_view
 from rest_framework import status
 from .serializers import FormDetailSerializer
 from .models import formDetails
+from rest_framework.views import APIView
+# views.py
+
+# from django.http import JsonResponse
+# from django.middleware.csrf import get_token
+
+# def get_csrf_token(request):
+#     token = get_token(request)
+#     return JsonResponse({'csrfToken': token})
+
 @api_view(['GET'])
 def apiOverview(request):
     url_list = {
@@ -30,3 +40,14 @@ def view_form_list(request):
     return Response(serializer.data)
 
 
+
+
+class ItemDeleteView(APIView):
+    def delete(self, request, id):
+        try:
+            item = formDetails.objects.get(id=id)
+            item.delete()
+            return Response(status=status.HTTP_204_NO_CONTENT)
+        except formDetails.DoesNotExist:
+            return Response(status=status.HTTP_404_NOT_FOUND)
+ 

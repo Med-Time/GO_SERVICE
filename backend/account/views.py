@@ -31,6 +31,7 @@ def account_submit(request):
                 
 
         else:
+            print("hello")
             return Response(serializer.errors, status=status.HTTP_400_BAD_REQUEST)
     #         user = authenticate(email=email,password=password)
 
@@ -46,3 +47,10 @@ def account_submit(request):
     #             return redirect('/admin')
     # else:
     #     return render(request,"/admin")
+
+
+@api_view(['GET'])
+def account_list(request):
+    queryset = AccountDetails.objects.all()
+    serializer = AccountDetailsSerializer(queryset, many=True)  # Assuming AccountDetailsSerializer is your serializer class
+    return Response(serializer.data)
