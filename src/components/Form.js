@@ -8,7 +8,7 @@ export default function Form() {
   const [loading, setLoading] = useState(true);
 
   useEffect(() => {
-    fetch('https://jsonplaceholder.typicode.com/posts/1')
+    fetch('http://127.0.0.1:8000/form/view-list')
       .then((response) => {
         if (!response.ok) {
           throw new Error('Network response was not ok');
@@ -17,6 +17,7 @@ export default function Form() {
       })
       .then((jsonData) => {
         setData(jsonData);
+        console.log(jsonData);
       })
       .catch((error) => {
         setError(error);
@@ -35,21 +36,55 @@ export default function Form() {
   if (error) {
     return <p>Error: {error.message}</p>;
   }
-  // const renderdata = () => {
-  //   return data && data.map((item, index) => (
-  //     <tr key={item.id}>
-  //       <td>{index + 1}</td>
-  //       <td>{item.name}</td>
-  //       <td>{item.sector}</td>
-  //       <td>{item.date}</td>
-  //       <td>{item.status}</td>
-  //     </tr>
-  //   ));
-  // };
-  const handleSubmit = (event) => {
-   // event.preventDefault(); // Prevent the form from being submitted in the traditional way
-    //alert('Form submitted'); // Display an alert
-    setIsSubmitted(true); // Set the isSubmitted state to true
+
+  
+  const renderData1 = data.filter((innumerate,ind)=>ind>data.length-6).reverse().map((item, index) => {
+    return(
+    <tr key={item.id}>
+      <td>{index + 1}</td>
+      <td>{item.name}</td>
+      <td>{item.sector}</td>
+      <td>{item.date}</td>
+      <td>{item.status}</td>
+    </tr>
+  )
+    }
+  )
+
+  const handleSubmit = async (event) => {
+    event.preventDefault(); // Prevent the default form submission
+    
+    // Access form data using event.target
+    const formData = new FormData(event.target);
+    
+    formData.set('name', formData.get('name'));
+    formData.set('phone', formData.get('phone'));
+    formData.set('sector', formData.get('sector'));
+    formData.set('details', formData.get('details'));
+    formData.set('file', formData.get('file'));
+    formData.set('location', formData.get('location'));
+    formData.set('check', formData.get('check'));
+    console.log(formData);
+
+    try {
+      // Make a POST request using fetch
+      const response = await fetch('http://127.0.0.1:8000/form/submit', {
+        method: 'POST',
+        body: formData // Pass the FormData object as the body
+      });
+
+      // Check if the request was successful
+      if (!response.ok) {
+        // If not successful, throw an error with the status text
+        throw new Error(`Failed to submit form data: ${response.statusText}`);
+      }
+
+      // If successful, log a success message
+      console.log('Form data submitted successfully');
+    } catch (error) {
+      // Catch any errors that occur during the fetch or processing of the response
+      console.error('Error:', error);
+    }
   };
   return (
     <div>
@@ -61,20 +96,20 @@ export default function Form() {
             <form method='' action='#'onSubmit={handleSubmit}>
               <div className="mb-3">
                 <label htmlFor="InputName" className="form-label text-dark">Name</label>
-                <input type="text" className="form-control" id="InputName" aria-describedby="emailHelp" required />
+                <input type="text" className="form-control" name="name" id="InputName" aria-describedby="emailHelp" required />
               </div>
               <div className="mb-3">
                 <label htmlFor="Inputphone" className="form-label text-dark">Phone</label>
-                <input type="tel" className="form-control" id="Inputphone" pattern="[0-9]{3}-[0-9]{2}-[0-9]{3}" required />
+                <input type="tel" className="form-control" id="Inputphone" name="phone" pattern="[0-9]{10}" required />
                 <div id="emailHelp" className="form-text text-dark">We'll never share your details with anyone else.</div>
               </div>
               <div className="mb-3">
                 <label htmlFor="releted" className="form-label text-dark">Sector</label>
-                <select className="form-select" aria-label="Select">
-                  <option value="transportation" defaultValue={'Transportation'}>Transportation</option>
-                  <option value="education">Education</option>
-                  <option value="health">Health</option>
-                  <option value="environment">Environment</option>
+                <select className="form-select" name="sector" aria-label="Select">
+                  <option value="transportation"  defaultValue={'Transportation'}>Transportation</option>
+                  <option value="education" >Education</option>
+                  <option value="health" >Health</option>
+                  <option value="environment" name="environment">Environment</option>
                 </select>
               </div>
               <div className="mb-3">
@@ -83,14 +118,14 @@ export default function Form() {
               </div>
               <div className="mb-3">
                 <label htmlFor="formFileMultiple" className="form-label text-dark">Upload file</label>
-                <input className="form-control" type="file" id="formFileMultiple" multiple />
+                <input className="form-control" type="file" name="file" id="formFileMultiple" multiple />
               </div>
               <div className="mb-3">
                 <label htmlFor="InputName" className="form-label text-dark">Location</label>
-                <input type="text" className="form-control" id="InputName" aria-describedby="emailHelp" required />
+                <input type="text" className="form-control" id="InputName" name="location" aria-describedby="emailHelp" required />
               </div>
               <div className="mb-3 form-check">
-                <input type="checkbox" className="form-check-input" id="exampleCheck1" />
+                <input type="checkbox" className="form-check-input" name="check" id="exampleCheck1" />
                 <label className="form-check-label text-dark" htmlFor="exampleCheck1">Want to hear from us</label>
               </div>
               <button type="submit" className="btn btn-primary">Submit</button>
@@ -107,7 +142,7 @@ export default function Form() {
                     <th scope="col">Status</th>
                   </tr>
                 </thead>
-                {/* <tbody>{renderdata()}</tbody> */}
+                <tbody>{renderData1}</tbody>
               </table>
             </div>
           </div>
