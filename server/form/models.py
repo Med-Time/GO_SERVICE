@@ -1,6 +1,6 @@
 
 from django.db import models
-from django.utils import timezone
+from datetime import date
 
 
 # Create your models here.
@@ -9,7 +9,7 @@ class formDetails(models.Model):
     phone = models.CharField(max_length = 13)
     sector = models.CharField(max_length = 100,default="Transportation")
     details = models.CharField(max_length = 1500)
-    date = models.DateField(default = timezone.now)
+    date = models.DateField(default = date.today)
     file = models.FileField(upload_to='files/')
     location = models.CharField(max_length = 250)
     want_to_hear = models.BooleanField()

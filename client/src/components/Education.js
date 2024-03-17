@@ -1,5 +1,6 @@
 import React, { useEffect, useState } from 'react';
 
+
 function Education() {
     const [data, setData] = useState([]);
 

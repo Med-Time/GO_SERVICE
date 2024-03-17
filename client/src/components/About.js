@@ -47,7 +47,7 @@ export default function About() {
                 </div>
                 <div className="team-member">
                     <h5 className="team-role">Developer</h5>
-                    <img src="Image/man-dummy.jpeg" alt="Bhishan Pangeni" />
+                    <img src="Image/bhishan.jpg" alt="Bhishan Pangeni" />
                     <p className="member">Bhishan Pangeni<br />USN: 1BM22CD017</p>
                     <div className="social-media">
                         <a href="https://twitter.com/BhishanPangeni" target="_blank" rel="me noreferrer">

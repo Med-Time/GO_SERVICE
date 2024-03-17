@@ -63,9 +63,10 @@ align-items: start;
 }
 .team-member img{
   width: 140px;
-  height: 140px;
-  border-radius: 25%;
+  height: auto;
+  border-radius: 50%;
   margin-bottom: 20px;
+  overflow: hidden;
 }
 .member{
   font-size: 1.2rem ;
@@ -151,10 +152,9 @@ align-items: start;
   text-align: end;
   width: 95%;
 }
-/* .navbar {
-  display: flex;
-  flex-wrap: nowrap;
-} */
+.navbar-brand {
+  font-size: 1.5rem;
+}
 /* Media Queries */
 @media (max-width: 991px) {
   /* remove logo */

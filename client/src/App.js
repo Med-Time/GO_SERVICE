@@ -37,6 +37,14 @@ function App() {
               <Footer />
             </>
           } />
+          <Route path="/home" element={
+            <>
+              <Navbar isLoggedIn={isLoggedIn} onLogout={handleLogout} />
+              <Slider />
+              <Form />
+              <Footer />
+            </>
+          } />
           <Route path="/login" element={<> 
           <Navbar isLoggedIn={isLoggedIn} onLogout={handleLogout} />
           <Login onLogin={handleLogin} /></>} />

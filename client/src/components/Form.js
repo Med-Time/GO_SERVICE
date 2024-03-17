@@ -65,6 +65,7 @@ export default function Form() {
     formData.set('location', formData.get('location'));
     formData.set('check', formData.get('check'));
     console.log(formData);
+   
 
     try {
       // Make a POST request using fetch
@@ -81,6 +82,12 @@ export default function Form() {
 
       // If successful, log a success message
       console.log('Form data submitted successfully');
+
+      // Refresh the page
+      window.location.reload();
+
+
+      // document.getElementById('myform').reset();
     } catch (error) {
       // Catch any errors that occur during the fetch or processing of the response
       console.error('Error:', error);
@@ -93,14 +100,14 @@ export default function Form() {
           <div className="col-md-6">
             <p className="h1 text-dark">Your Concerns</p>
             {isSubmitted && <Alert />} {/* If isSubmitted is true, display the Alert component */}
-            <form method='POST' action='/'onSubmit={handleSubmit}>
+            <form method='POST' action='/'onSubmit={handleSubmit} id='myform'>
               <div className="mb-3">
                 <label htmlFor="InputName" className="form-label text-dark">Name</label>
                 <input type="text" className="form-control" name="name" id="InputName" aria-describedby="emailHelp" required />
               </div>
               <div className="mb-3">
                 <label htmlFor="Inputphone" className="form-label text-dark">Phone</label>
-                <input type="tel" className="form-control" id="Inputphone" name="phone" pattern="[0-9]{10}" required />
+                <input type="tel" className="form-control" id="Inputphone" name="phone" pattern="[0-9]{10-12}" required />
                 <div id="emailHelp" className="form-text text-dark">We'll never share your details with anyone else.</div>
               </div>
               <div className="mb-3">
@@ -130,6 +137,7 @@ export default function Form() {
               </div>
               <button type="submit" className="btn btn-primary">Submit</button>
             </form>
+
             <div className="container my-4">
               <p className="fs-2 text-success">Our Ongoing Tasks</p>
               <table className="table table-hover">
