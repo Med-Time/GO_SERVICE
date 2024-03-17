@@ -84,9 +84,9 @@ export default function Login() {
         <div className='Container'>
             <div className='row gx-5 d-flex align-items-center justify-content-center'>
                 <div className='col-lg-6 col-sm-12'>
-                    <div className='h1 text-center'>Go Service
-                        <p className='h6 text-end'>We are the change we seek for our society</p>
+                    <div className='title'>Go Service
                     </div>
+                        <p className='slogan'>-We are the change we seek for our society</p>
                 </div>
                 <div className='col-md-6 align-items-center login'>
                     <form onSubmit={handleSubmit}>

@@ -53,7 +53,7 @@ export default function Form() {
 
   const handleSubmit = async (event) => {
     event.preventDefault(); // Prevent the default form submission
-    
+    setIsSubmitted(true); // Set isSubmitted to true
     // Access form data using event.target
     const formData = new FormData(event.target);
     
