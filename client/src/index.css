@@ -151,32 +151,25 @@ align-items: start;
   text-align: end;
   width: 95%;
 }
-.navbar {
+/* .navbar {
   display: flex;
   flex-wrap: nowrap;
-}
+} */
 /* Media Queries */
 @media (max-width: 991px) {
   /* remove logo */
   .logo{
     display: none;
   }
-  .navbar {
-    display: flex;
-  }
-   .navbar-collapse {
-    position: absolute;
-    top: 100%;
-    right: 0;
-  }
   /* bring navbar toggler to the right */
   .navbar .navbar-brand {
-    font-size: 1.8rem;
-    padding-left: 0.7rem;
+    font-size: 1.2rem;
+    padding-left: 0.5rem;
   }
+ 
   .navbar .nav-link {
-    font-size: 0.8rem;
-  }
+    font-size: 1rem;
+  } 
   .team{
     display: flex;
     flex-direction: column;

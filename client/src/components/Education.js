@@ -33,6 +33,7 @@ function Education() {
 
             // Implement accept logic here if needed
 
+
             // You can also send a request to update the status in the backend if required
         } catch (error) {
             console.error('Error accepting item:', error);
@@ -53,7 +54,7 @@ function Education() {
             console.error('Error deleting item:', error);
         }
     };
-    var link = 'Image';
+    var link = 'http://localhost:3000';
     return (
         <>
             {data.map((item) => (
@@ -67,12 +68,12 @@ function Education() {
                     </div>
                     <div className="file">
                         {item.file ? (
-                            console.log(link + item.file.slice(12)),
+                            console.log(link+item.file),
                             /\.(gif|jpe?g|tiff|png|webp|bmp)$/i.test(item.file) ? (
-                                <img src={link + item.file.slice(12)} alt="User Media" onError={(e) => { e.target.onerror = null; e.target.src = "Image/error.png" }} />
+                                <img src={link+item.file} alt="User Media" onError={(e) => { e.target.onerror = null; e.target.src = "Image/error.png" }} />
                             ) : /\.(mp4|webm|ogg)$/i.test(item.file) ? (
                                 <video controls>
-                                    <source src={link + item.file} type="video/mp4" />
+                                    <source src={link+item.file} type="video/mp4" />
                                     Your browser does not support the video tag.
                                 </video>
                             ) : (

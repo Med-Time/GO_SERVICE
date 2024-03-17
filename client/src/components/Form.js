@@ -118,7 +118,7 @@ export default function Form() {
               </div>
               <div className="mb-3">
                 <label htmlFor="formFileMultiple" className="form-label text-dark">Upload file</label>
-                <input className="form-control" type="file" name="file" id="formFileMultiple" multiple required/>
+                <input className="form-control" type="file" name="file" id="formFileMultiple" accept="image/*, video/*" multiple required/>
               </div>
               <div className="mb-3">
                 <label htmlFor="InputName" className="form-label text-dark">Location</label>

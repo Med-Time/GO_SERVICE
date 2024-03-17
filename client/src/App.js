@@ -28,22 +28,26 @@ function App() {
     <>
       {/* <Navbar /> */}
       <Router>
-      <Navbar isLoggedIn={isLoggedIn} onLogout={handleLogout} />
         <Routes>
           <Route path="/" element={
             <>
-              
+              <Navbar isLoggedIn={isLoggedIn} onLogout={handleLogout} />
               <Slider />
               <Form />
               <Footer />
             </>
           } />
-          <Route path="/login" element={<> <Login onLogin={handleLogin} /></>} />
-          <Route path="/about" element={<><About /></>} />
-          <Route path="/faq" element={<> <FAQ /></>} />
+          <Route path="/login" element={<> 
+          <Navbar isLoggedIn={isLoggedIn} onLogout={handleLogout} />
+          <Login onLogin={handleLogin} /></>} />
+          <Route path="/about" element={<>
+            <Navbar isLoggedIn={isLoggedIn} onLogout={handleLogout} /><About /></>} />
+          <Route path="/faq" element={<> 
+            <Navbar isLoggedIn={isLoggedIn} onLogout={handleLogout} /><FAQ /></>} />
           <Route path="/contact" element={<> <Contact /></>} />
           <Route path="*" element={<><h1>404 Not Found</h1></>} />
-          <Route path="/education" element={<> <Education/></>} />
+          <Route path="/education" element={<> 
+            <Navbar isLoggedIn={isLoggedIn} onLogout={handleLogout} /><Education/></>} />
         </Routes>
       </Router>
     </>
