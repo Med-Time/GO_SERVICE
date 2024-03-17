@@ -6,7 +6,7 @@ from django.utils import timezone
 # Create your models here.
 class formDetails(models.Model):
     name = models.CharField(max_length = 100)
-    phone = models.CharField(max_length = 10)
+    phone = models.CharField(max_length = 13)
     sector = models.CharField(max_length = 100,default="Transportation")
     details = models.CharField(max_length = 1500)
     date = models.DateField(default = timezone.now)

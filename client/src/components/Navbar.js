@@ -7,8 +7,8 @@ export default function navbar({ isLoggedIn, onLogout}) {
     <>
       <nav className="navbar navbar-expand-lg navbar-light bg-light p-0 m-0">
           <a className="navbar-brand text-primary " href="/"><img src="Image/logo.jpeg" alt="Logo" className="logo" />GO SERVICE</a>
-        <div className="container-fluid fs-5 ">
-          <button className="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent"
+        <div className="container-fluid fs-5">
+          <button className="navbar-toggler ms-auto" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent"
             aria-controls="navbarSupportedContent" aria-expanded="true" aria-label="Toggle navigation">
             <span className="navbar-toggler-icon"></span>
           </button>

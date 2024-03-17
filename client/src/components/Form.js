@@ -93,7 +93,7 @@ export default function Form() {
           <div className="col-md-6">
             <p className="h1 text-dark">Your Concerns</p>
             {isSubmitted && <Alert />} {/* If isSubmitted is true, display the Alert component */}
-            <form method='' action='#'onSubmit={handleSubmit}>
+            <form method='POST' action='/'onSubmit={handleSubmit}>
               <div className="mb-3">
                 <label htmlFor="InputName" className="form-label text-dark">Name</label>
                 <input type="text" className="form-control" name="name" id="InputName" aria-describedby="emailHelp" required />
@@ -114,11 +114,11 @@ export default function Form() {
               </div>
               <div className="mb-3">
                 <label htmlFor="details" className="form-label text-dark">Details</label>
-                <textarea className="form-control" id="details" rows="4"></textarea>
+                <textarea className="form-control" id="details" name='details' rows="4" required></textarea>
               </div>
               <div className="mb-3">
                 <label htmlFor="formFileMultiple" className="form-label text-dark">Upload file</label>
-                <input className="form-control" type="file" name="file" id="formFileMultiple" multiple />
+                <input className="form-control" type="file" name="file" id="formFileMultiple" multiple required/>
               </div>
               <div className="mb-3">
                 <label htmlFor="InputName" className="form-label text-dark">Location</label>
