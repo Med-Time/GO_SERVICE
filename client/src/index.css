@@ -24,6 +24,7 @@ body {
   border-radius: 1.4rem;
   height: 75vh;
 }
+
 .company{
   display: flex;
   flex-direction: column;
@@ -170,6 +171,10 @@ align-items: start;
   .navbar .nav-link {
     font-size: 1rem;
   } 
+  .table{
+    width: 100%;
+    font-size: smaller;
+  }
   .team{
     display: flex;
     flex-direction: column;

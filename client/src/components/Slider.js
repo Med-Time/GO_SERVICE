@@ -17,14 +17,14 @@ export default function Slider() {
                         </div>
                         <div className="carousel-inner">
                             <div className="carousel-item active">
-                                <img src="Image/image1.jpeg" className="d-block w-100"
+                                <img src="Image/image3.jpeg" className="d-block w-100"
                                     alt="construction1" />
                             </div>
                             <div className="carousel-item">
                                 <img src="Image/image2.jpeg" className="d-block w-100" alt="construction2" />
                             </div>
                             <div className="carousel-item">
-                                <img src="Image/image3.jpeg" className="d-block w-100"
+                                <img src="Image/image1.jpeg" className="d-block w-100"
                                     alt="construction3" />
                                 {/* https://source.unsplash.com/776x776/?road,construction */}
                             </div>

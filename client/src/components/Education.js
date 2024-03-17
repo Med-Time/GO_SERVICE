@@ -71,7 +71,7 @@ function Education() {
                         {item.file ? (
                             console.log(link+item.file),
                             /\.(gif|jpe?g|tiff|png|webp|bmp)$/i.test(item.file) ? (
-                                <img src={link+item.file} alt="User Media" onError={(e) => { e.target.onerror = null; e.target.src = "Image/error.png" }} />
+                                <img src={item.file} alt="User Media" onError={(e) => { e.target.onerror = null; e.target.src = "Image/error.png" }} />
                             ) : /\.(mp4|webm|ogg)$/i.test(item.file) ? (
                                 <video controls>
                                     <source src={link+item.file} type="video/mp4" />
