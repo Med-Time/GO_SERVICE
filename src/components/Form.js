@@ -1,4 +1,6 @@
-import React from 'react'
+import React, { useState, useEffect } from 'react';
+import Alert from './Alert';
+
 
 export default function Form() {
   const [data, setData] = useState(null);
@@ -145,7 +147,6 @@ export default function Form() {
             </div>
           </div>
         </div>
-
       </div>
     </div>
   )
