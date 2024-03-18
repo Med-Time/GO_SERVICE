@@ -96,6 +96,10 @@ export default function Form() {
   };
   return (
     <div>
+      {
+      isSubmitted &&
+      <Alert show={isSubmitted} variant="success" message="Form submitted successfully" />
+}
       <div className="container">
         <div className="row justify-content-center">
           <div className="col-md-6">
@@ -125,7 +129,7 @@ export default function Form() {
                     </div>
                     <div className="mb-3">
                     <label htmlFor="formFileMultiple" className="form-label text-dark">Upload file</label>
-                    <input className="form-control" type="file" name="file" id="formFileMultiple" accept="image/*, video/*" multiple required/>
+                    <input className="form-control" type="file" name="file" id="formFileMultiple" accept="image/*" multiple required/>
                     </div>
                     <div className="mb-3">
                     <label htmlFor="InputName" className="form-label text-dark">Location</label>

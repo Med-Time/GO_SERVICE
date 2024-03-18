@@ -1,8 +1,10 @@
+/* eslint-disable react-hooks/rules-of-hooks */
 import React, { useEffect, useState } from 'react';
+// import axios from 'axios';
 
-
-function Education() {
+export default function Education() {
     const [data, setData] = useState([]);
+    
 
     useEffect(() => {
         fetchData();
@@ -15,27 +17,120 @@ function Education() {
                 throw new Error('Failed to fetch data');
             }
             const responseData = await response.json();
-            setData(responseData);
+            // console.log('Response data:', responseData); 
+            // for (const item of responseData) {
+            //     const filename = item.file.replace('/media/', ''); 
+            //     console.log('Filename:', filename); 
+            //     await fetchImage(filename);
+            // }
+            const newData = responseData.filter(item => item.status === "Pending");
+            console.log('New data:', newData);
+            setData(newData);
+            // setData(responseData);
         } catch (error) {
             console.error('Error fetching data:', error);
         }
     };
+    
+    
+    
 
+    // const fetchImage = async (filename) => {
+    //     try {
+    //         if (!filename) {
+    //             console.error('Error fetching image: Filename is undefined');
+    //             return;
+    //         }
+    
+    //         const response = await axios.get(`http://127.0.0.1:8000/view/${encodeURIComponent(filename)}/`, {
+    //             responseType: 'arraybuffer'
+    //         });
+    //         const base64 = btoa(
+    //             new Uint8Array(response.data).reduce(
+    //                 (data, byte) => data + String.fromCharCode(byte),
+    //                 '',
+    //             ),
+    //         );
+    //         setData(prevData => {
+    //             return prevData.map(item => {
+    //                 if (item.file === filename) { // Updated to use item.file
+    //                     item.imageSrc = `data:image/jpeg;base64,${base64}`;
+    //                 }
+    //                 return item;
+    //             });
+    //         });
+    //     } catch (error) {
+    //         console.error('Error fetching image:', error);
+    //     }
+    // };
+    
+    
+    
+    
+
+    // const handleAccept = async (id) => {
+    //     try {
+    //         setData(prevData => {
+    //             return prevData.map(item => {
+    //                 if (item.id === id) {
+    //                     item.status = 'accepted';
+    //                 }
+    //                 return item;
+    //             });
+    //         });
+
+    //         // Implement accept logic here
+
+
+
+
+
+
+    //         //Send a request to update the status in the backend if required
+    //         const response = await fetch(`http://127.0.0.1:8000/form/submit`, {
+    //             method: 'PUT',
+    //             headers: {
+    //                 'Content-Type': 'application/json'
+    //             },
+    //             body: JSON.stringify({ status: 'accepted' })
+    //         });
+    //         if (!response.ok) {
+    //             throw new Error('Failed to update status');
+    //         }
+
+    //         console.log('Response:', response);
+
+    //     } catch (error) {
+    //         console.error('Error accepting item:', error);
+    //     }
+    // };
     const handleAccept = async (id) => {
+        alert("Complaint Accepted");
         try {
-            setData(prevData => {
-                return prevData.map(item => {
-                    if (item.id === id) {
-                        item.status = 'accepted';
-                    }
-                    return item;
-                });
+            // Send a request to the backend to update the status
+            const response = await fetch(`http://127.0.0.1:8000/form/update/${id}`, {
+                method: 'PATCH', // Use PATCH method to update the status
+                headers: {
+                    'Content-Type': 'application/json'
+                },
+                body: JSON.stringify({ status: 'accepted' }) // Send the new status in the request body
             });
+
+
+            if (!response.ok) {
+                throw new Error('Failed to update status');
+            }
+
+            // Filter out the item from the data array
+            const newData = data.filter(item => item.id !== id);
+            setData(newData);
+
 
             // Implement accept logic here if needed
 
 
             // You can also send a request to update the status in the backend if required
+
         } catch (error) {
             console.error('Error accepting item:', error);
         }
@@ -55,7 +150,7 @@ function Education() {
             console.error('Error deleting item:', error);
         }
     };
-    var link = 'http://localhost:3000';
+
     return (
         <>
             {data.map((item) => (
@@ -66,20 +161,12 @@ function Education() {
                     </div>
                     <div className="details">
                         <p>{item.details}</p>
+                        <p>Location: {item.location}</p>
                     </div>
                     <div className="file">
                         {item.file ? (
-                            console.log(link+item.file),
-                            /\.(gif|jpe?g|tiff|png|webp|bmp)$/i.test(item.file) ? (
-                                <img src={item.file} alt="User Media" onError={(e) => { e.target.onerror = null; e.target.src = "Image/error.png" }} />
-                            ) : /\.(mp4|webm|ogg)$/i.test(item.file) ? (
-                                <video controls>
-                                    <source src={link+item.file} type="video/mp4" />
-                                    Your browser does not support the video tag.
-                                </video>
-                            ) : (
-                                <p>Unsupported media format</p>
-                            )
+                            console.log(item.file),
+                            <img src={`Image/${item.file.slice(13)}`} alt="User Media" onError={(e) => { e.target.onerror = null; e.target.src = "Image/error.png" }} />
                         ) : (
                             <p>No media available</p>
                         )}
@@ -94,5 +181,3 @@ function Education() {
         </>
     );
 }
-
-export default Education;

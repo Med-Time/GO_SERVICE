@@ -1,9 +1,10 @@
 import React, { useState } from 'react';
-import { Link, useNavigate } from 'react-router-dom';
+import {useNavigate } from 'react-router-dom';
 
-export default function Login() {
+export default function Login(onLogin) {
     const [email, setEmail] = useState('');
     const [password, setPassword] = useState('');
+    const [errorMessage, setErrorMessage] = useState('');
     const navigate = useNavigate();
 
     const handleSubmit = async (event) => {
@@ -18,18 +19,22 @@ export default function Login() {
                 },
                 body: JSON.stringify({ email, password })
             });
-
+            
             if (!response.ok) {
                 throw new Error('Failed to authenticate');
             }
-
+            else{
             // If authentication is successful, navigate the user to /education
             navigate('/education');
+            // onLogin();
+            }
         } catch (error) {
             // Handle authentication errors
             console.error('Error authenticating:', error);
-            // You can display an error message to the user or handle it in any way you want
+            alert("Invalid Credentials")
+            setErrorMessage('Invalid credentials');
         }
+        
     };
 
     return (
@@ -43,13 +48,15 @@ export default function Login() {
                 <div className='col-md-6 align-items-center login'>
                     <form onSubmit={handleSubmit}>
                         <div className="form-floating">
-                            <input type="email" className="form-control mb-3" id="floatingInput" placeholder="Email address" value={email} onChange={(e) => setEmail(e.target.value)} />
+                            <input type="email" className="form-control mb-3" id="floatingInput" name="email" placeholder="Email address" value={email} onChange={(e) => setEmail(e.target.value)} />
                             <label htmlFor="floatingInput">Email address</label>
                         </div>
                         <div className="form-floating">
-                            <input type="current-password" className="form-control" id="floatingPassword" placeholder="Password" value={password} onChange={(e) => setPassword(e.target.value)} />
+                            <input type="password" className="form-control" id="floatingPassword" name="password" placeholder="Password" value={password} onChange={(e) => setPassword(e.target.value)} />
                             <label htmlFor="floatingPassword">Password</label>
                         </div>
+
+                        {errorMessage && <p className="error">{errorMessage}</p>}
 
                         <div className="form-check text-start my-3">
                             <input className="form-check-input" type="checkbox" value="remember-me" id="flexCheckDefault" />
@@ -57,9 +64,9 @@ export default function Login() {
                                 Remember me
                             </label>
                         </div>
-                        <Link to='/education'>
+                        
                         <button className="btn btn-primary w-25 py-2" type="submit">Log in</button>
-                        </Link>
+                        
                     </form>
                         <p className="mt-5 mb-3 text-footer-secondary">Go Service © 2023-2024</p>
                 </div>

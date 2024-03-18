@@ -31,7 +31,7 @@ export default function About() {
             <div className="team">
                 <div className="team-member">
                     <h5 className="team-role">Developer</h5>
-                    <img src="Image/man-dummy.jpeg" alt="Anmol Bhusal" />
+                    <img src="Image/Anmol.jpg" alt="Anmol Bhusal" />
                     <p className="member">Anmol Bhusal<br />USN: 1BM22CD006</p>
                     <div className="social-media">
                         <a href="/" target="_blank" rel="me noreferrer">
@@ -63,7 +63,7 @@ export default function About() {
                 </div>
                 <div className="team-member">
                     <h5 className="team-role">Developer</h5>
-                    <img src="Image/man-dummy.jpeg" alt="Sagar Khadka" />
+                    <img src="Image/sagar.jpg" alt="Sagar Khadka" />
                     <p className="member">Sagar Khadka<br />USN: 1BM22CD053</p>
                     <div className="social-media">
                         <a href="/" target="_blank" rel="me noreferrer">

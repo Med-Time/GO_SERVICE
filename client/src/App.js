@@ -31,7 +31,7 @@ function App() {
         <Routes>
           <Route path="/" element={
             <>
-              <Navbar isLoggedIn={isLoggedIn} onLogout={handleLogout} />
+              <Navbar isLoggedIn={isLoggedIn}/>
               <Slider />
               <Form />
               <Footer />
@@ -39,23 +39,25 @@ function App() {
           } />
           <Route path="/home" element={
             <>
-              <Navbar isLoggedIn={isLoggedIn} onLogout={handleLogout} />
+              <Navbar isLoggedIn={isLoggedIn}/>
               <Slider />
               <Form />
               <Footer />
             </>
           } />
           <Route path="/login" element={<> 
-          <Navbar isLoggedIn={isLoggedIn} onLogout={handleLogout} />
-          <Login onLogin={handleLogin} /></>} />
+          <Navbar isLoggedIn={isLoggedIn}/>
+          <Login onLogin={() => setIsLoggedIn(true)} /></>} />
           <Route path="/about" element={<>
-            <Navbar isLoggedIn={isLoggedIn} onLogout={handleLogout} /><About /></>} />
+            <Navbar isLoggedIn={isLoggedIn}/><About /></>} />
           <Route path="/faq" element={<> 
-            <Navbar isLoggedIn={isLoggedIn} onLogout={handleLogout} /><FAQ /></>} />
-          <Route path="/contact" element={<> <Contact /></>} />
+            <Navbar isLoggedIn={isLoggedIn} /><FAQ /></>} />
+          <Route path="/contact" element={<> 
+            <Navbar isLoggedIn={isLoggedIn}/>
+          <Contact /></>} />
           <Route path="*" element={<><h1>404 Not Found</h1></>} />
           <Route path="/education" element={<> 
-            <Navbar isLoggedIn={isLoggedIn} onLogout={handleLogout} /><Education/></>} />
+            <Navbar isLoggedIn={isLoggedIn}/><Education/></>} />
         </Routes>
       </Router>
     </>
