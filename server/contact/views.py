@@ -16,10 +16,10 @@ def contact_submit(request):
         serializer = ContactDetailSerializer(data = request.data)
         if serializer.is_valid():
             serializer.save()
-            subject = 'Message from' + serializer.data['name']
+            subject = "Message from " + serializer.data['name']
             message = serializer.data['message']
-            from_email = 'parikshitmaharjan78@gmail.com'
-            recipient_list = ['sazz.sharma42@gmail.com']
+            from_email = 'parikshitmaharjan78@gmail.com' 
+            recipient_list = ['subashpangeni54@gmail.com'] 
             message_from_us = "Your message has been recieved by us! Thanks for contacting. We will look contact you soon. "
             send_mail(subject, message, from_email, recipient_list)
             
