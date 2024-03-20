@@ -43,12 +43,6 @@ export default function Contact() {
 
             // If successful, log a success message
             console.log('Form data submitted successfully');
-            // alert('Form data submitted successfully');
-            // formData.set('name', '');
-            // formData.set('email', '');
-            // formData.set('message', '');
-            // formData.set('wantToHearBack', false);
-            // document.getElementById('contactform').reset();
 
         } catch (error) {
             // Catch any errors that occur during the fetch or processing of the response
