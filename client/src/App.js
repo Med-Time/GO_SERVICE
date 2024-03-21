@@ -20,6 +20,7 @@ function App() {
     setIsLoggedIn(true);
   };
 
+
   const handleLogout = () => {
     console.log('Logout Successful');
     setIsLoggedIn(false);
@@ -31,22 +32,14 @@ function App() {
         <Routes>
           <Route path="/" element={
             <>
-              <Navbar isLoggedIn={isLoggedIn}/>
-              <Slider />
-              <Form />
-              <Footer />
-            </>
-          } />
-          <Route path="/home" element={
-            <>
-              <Navbar isLoggedIn={isLoggedIn}/>
+              <Navbar isLoggedIn={isLoggedIn} handleLogin={handleLogin} handleLogout={handleLogout}/>
               <Slider />
               <Form />
               <Footer />
             </>
           } />
           <Route path="/login" element={<> 
-          <Navbar isLoggedIn={isLoggedIn}/>
+          <Navbar isLoggedIn={isLoggedIn} handleLogin={handleLogin} handleLogout={handleLogout}/>
           <Login onLogin={() => setIsLoggedIn(true)} /></>} />
           <Route path="/about" element={<>
             <Navbar isLoggedIn={isLoggedIn}/><About /></>} />
@@ -57,7 +50,8 @@ function App() {
           <Contact /></>} />
           <Route path="*" element={<><h1>404 Not Found</h1></>} />
           <Route path="/education" element={<> 
-            <Navbar isLoggedIn={isLoggedIn}/><Education/></>} />
+            <Navbar isLoggedIn={isLoggedIn} handleLogin={handleLogin} handleLogout={handleLogout}/>
+            <Education/></>} />
         </Routes>
       </Router>
     </>

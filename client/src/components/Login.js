@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import {useNavigate } from 'react-router-dom';
 
-export default function Login(onLogin) {
+export default function Login(props) {
     const [email, setEmail] = useState('');
     const [password, setPassword] = useState('');
     const [errorMessage, setErrorMessage] = useState('');
@@ -25,8 +25,8 @@ export default function Login(onLogin) {
             }
             else{
             // If authentication is successful, navigate the user to /education
+            props.onLogin();
             navigate('/education');
-            // onLogin();
             }
         } catch (error) {
             // Handle authentication errors
