@@ -64,8 +64,7 @@ export default function Login(props) {
                                 Remember me
                             </label>
                         </div>
-                        
-                        <button className="btn btn-primary w-25 py-2" type="submit">Log in</button>
+                        <button className="btn btn-primary w-25 py-2" type="submit" onClick={props.handleLogin}>Log in</button>
                         
                     </form>
                         <p className="mt-5 mb-3 text-footer-secondary">Go Service © 2023-2024</p>
