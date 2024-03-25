@@ -17,7 +17,7 @@ The Complaints Management System is a web application developed using Django and
 - **Backend**: Django
 - **Database**: MySQL
 - **File Storage**: Django Media Files
-- **API**:RESTful 
+- **API**: RESTful 
 - **API Integration**: Fetch for HTTP requests
 - **Styling**: Bootstrap
 
