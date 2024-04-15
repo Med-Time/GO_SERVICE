@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
 import {useNavigate } from 'react-router-dom';
 
+
 export default function Login(props) {
     const [email, setEmail] = useState('');
     const [password, setPassword] = useState('');
@@ -36,9 +37,12 @@ export default function Login(props) {
         }
         
     };
+    // Add Selection (option) for the department then according to the department the complaints will be shown
+    // to the department user
 
     return (
         <div className='Container'>
+            {/* {userLoggedIn && (<Navigate to={'/home'} replace={true} />)} */}
             <div className='row gx-5 d-flex align-items-center justify-content-center'>
                 <div className='col-lg-6 col-sm-12 brand'>
                     <div className='title'>Go Service

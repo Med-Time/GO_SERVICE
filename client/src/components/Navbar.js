@@ -1,8 +1,8 @@
 import React from 'react'
 import { Link, NavLink } from 'react-router-dom';
+
 export default function Navbar(props) {
   // eslint-disable-next-line react-hooks/rules-of-hooks
-
 
   return (
     <>
@@ -29,9 +29,9 @@ export default function Navbar(props) {
 
               <button className="btn btn-outline-success mx-2" type="button">{props.isLoggedIn ? 'Logout' : 'Login'}</button>
             </Link> */}
-            {props.isLoggedIn ? (
+            {props.userLoggedIn ? (
               <Link to="/login">
-                <button type="button" className="btn btn-outline-dark" onClick={props.handleLogout}>Log Out</button>
+                <button type="button" className="btn btn-outline-dark" onClick={props.handleSubmit} >Log Out</button>
               </Link>
             ) : (
               <Link to="/login">

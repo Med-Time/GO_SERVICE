@@ -10,7 +10,7 @@ class formDetails(models.Model):
     sector = models.CharField(max_length = 100,default="Transportation")
     details = models.CharField(max_length = 1500)
     date = models.DateField(default = date.today)
-    file = models.FileField(upload_to='files/')
+    file = models.URLField(max_length=1500)
     location = models.CharField(max_length = 250)
     want_to_hear = models.BooleanField()
     status = models.CharField(max_length = 250,default = "Pending")

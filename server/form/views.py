@@ -42,13 +42,13 @@ def view_form_list(request):
     serializer = FormDetailSerializer(queryset, many = True)
     return Response(serializer.data)
 
-@api_view(['GET'])
-def get_image(request, filename):
-    image_path = os.path.join(settings.MEDIA_ROOT, filename)
-    with open(image_path, 'rb') as f:
-        file_extension = os.path.splitext(filename)[1]
-        content_type = "image/jpeg" if file_extension == ".jpeg" else "image/png" if file_extension == ".png" else "image/jpg"  # Adjust content types based on your image formats
-        return HttpResponse(f.read(), content_type=content_type)
+# @api_view(['GET'])
+# def get_image(request, filename):
+#     image_path = os.path.join(settings.MEDIA_ROOT, filename)
+#     with open(image_path, 'rb') as f:
+#         file_extension = os.path.splitext(filename)[1]
+#         content_type = "image/jpeg" if file_extension == ".jpeg" else "image/png" if file_extension == ".png" else "image/jpg"  # Adjust content types based on your image formats
+#         return HttpResponse(f.read(), content_type=content_type)
 
 
 class ItemDeleteView(APIView):

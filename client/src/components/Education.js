@@ -1,10 +1,30 @@
 /* eslint-disable react-hooks/rules-of-hooks */
 import React, { useEffect, useState } from 'react';
+import {
+    ref,
+    getDownloadURL,
+    listAll,
+  } from "firebase/storage";
+  import { storage } from "./firebase";
 
 export default function Education() {
     const [data, setData] = useState([]);
+    const [imageUrls, setImageUrls] = useState([]);
     
+    const imagesListRef = ref(storage, "images/");
+    
+      useEffect(() => {
+        listAll(imagesListRef).then((response) => {
+          response.items.forEach((item) => {
+            getDownloadURL(item).then((url) => {
+              setImageUrls((prev) => [...prev, url]);
+            });
+          });
+        });
+      }, []);
 
+    // for now it is showing all the complaints to the department user
+    // Select the related department and then show the complaints to the department user according to the department
     useEffect(() => {
         fetchData();
     }, []);
@@ -66,7 +86,8 @@ export default function Education() {
             console.error('Error deleting item:', error);
         }
     };
-
+// Upload the image to the firebase storage and then get the url of the image and then save the url in the database
+// Also show the image in the post
     return (
         <>
             {data.map((item) => (
@@ -82,7 +103,7 @@ export default function Education() {
                     <div className="file">
                         {item.file ? (
                             console.log(item.file),
-                            <img src={`Image/${item.file.slice(13)}`} alt="User Media" onError={(e) => { e.target.onerror = null; e.target.src = "Image/error.png" }} />
+                            <img src={item.file} alt="User Media" onError={(e) => { e.target.onerror = null; e.target.src = "Image/error.png" }} key={item.id}/>
                         ) : (
                             <p>No media available</p>
                         )}

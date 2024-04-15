@@ -1,12 +1,32 @@
 import React, { useState, useEffect } from 'react';
 import Alert from './Alert';
+import {
+  ref,
+  uploadBytes,
+  getDownloadURL,
+} from "firebase/storage";
+import { storage } from "./firebase";
+import { v4 } from "uuid";
 
 
 export default function Form() {
+
   const [data, setData] = useState(null);
   const [error, setError] = useState(null);
   const [loading, setLoading] = useState(true);
+  const [imageUpload, setImageUpload] = useState(null);
+    const [imageUrls, setImageUrls] = useState([]);
+    
 
+  const uploadFile = () => {
+    if (imageUpload == null) return;
+    const imageRef = ref(storage, `images/${imageUpload.name + v4()}`);
+    uploadBytes(imageRef, imageUpload).then((snapshot) => {
+      getDownloadURL(snapshot.ref).then((url) => {
+        setImageUrls((prev) => [...prev, url]);
+      });
+    });
+  };
   useEffect(() => {
     fetch('http://127.0.0.1:8000/form/view-list')
       .then((response) => {
@@ -57,16 +77,20 @@ export default function Form() {
     setIsSubmitted(true); // Set isSubmitted to true
     // Access form data using event.target
     const formData = new FormData(event.target);
-    
+    console.log("this is before upload file function");
+    uploadFile();
+    console.log("this is after upload file function");
     formData.set('name', formData.get('name'));
     formData.set('phone', formData.get('phone'));
     formData.set('sector', formData.get('sector'));
     formData.set('details', formData.get('details'));
-    formData.set('file', formData.get('file'));
+    console.log("this is before set file function");
+    formData.set('file', imageUrls);
+    console.log(imageUrls)
+    console.log("this is after set file function");
     formData.set('location', formData.get('location'));
     formData.set('check', formData.get('check'));
     console.log(formData);
-   
 
     try {
       // Make a POST request using fetch
@@ -129,7 +153,9 @@ export default function Form() {
                     </div>
                     <div className="mb-3">
                     <label htmlFor="formFileMultiple" className="form-label text-dark">Upload file</label>
-                    <input className="form-control" type="file" name="file" id="formFileMultiple" accept="image/*" multiple required/>
+                    <input className="form-control" type="file" name="file" id="formFileMultiple" onChange={(event) => {
+          setImageUpload(event.target.files[0]);
+        }} multiple required/> {/* accept="image/*" */}
                     </div>
                     <div className="mb-3">
                     <label htmlFor="InputName" className="form-label text-dark">Location</label>
