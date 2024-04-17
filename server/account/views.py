@@ -46,14 +46,12 @@ def account_submit(request):
             password=serializer.data['password']
 
             if AccountDetails.objects.filter(email = email,password = password).exists():
-                print("good")
                 messages.info(request,'done')
                 return Response("Login successfull", status=status.HTTP_201_CREATED)
                 
                 
                 
             else:
-                print("bad")
                 # messages.info(request,'not-done')
                 messages.info(request,'Invalid Credentials')
                 

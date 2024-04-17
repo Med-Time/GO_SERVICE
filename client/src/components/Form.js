@@ -19,39 +19,28 @@ export default function Form() {
     
 
   const uploadFile = async () => {
-    console.log("This is in first line of upload file.")
     if (imageUpload == null) return;
     const imageRef = ref(storage, `images/${imageUpload.name + v4()}`);
      uploadBytes(imageRef, imageUpload).then((snapshot) => {
     getDownloadURL(snapshot.ref).then((url) => {
-        console.log("This is in get download url function.",url)
         setImageUrls((prev) => [...prev, url]);
       });
     });
 
-      
-    console.log("This is in last line of upload file.")
   };
   const handleSubmit = async (event) => {
     event.preventDefault(); // Prevent the default form submission
     setIsSubmitted(true); // Set isSubmitted to true
     // Access form data using event.target
     const formData = new FormData(event.target);
-    console.log("this is before upload file function");
-    console.log("this is after upload file function");
     formData.set('name', formData.get('name'));
     formData.set('phone', formData.get('phone'));
     formData.set('sector', formData.get('sector'));
     formData.set('details', formData.get('details'));
-    console.log("this is details : ", formData.get('details'));
-    console.log("this is before set file function");
     await uploadFile();
     formData.set('file', imageUrls);
-    console.log("this is after set",imageUrls)
-    console.log("this is after set file function");
     formData.set('location', formData.get('location'));
     formData.set('check', formData.get('check'));
-    console.log("This is formdata",formData);
 
     try {
       // Make a POST request using fetch
@@ -60,15 +49,11 @@ export default function Form() {
         body: formData // Pass the FormData object as the body
       });
 
-      console.log("This is response: ",response);
-
       // Check if the request was successful
       if (!response.ok) {
         // If not successful, throw an error with the status text
         throw new Error(`Failed to submit form data: ${response.statusText}`);
       }
-      // If successful, log a success message
-      console.log('Form data submitted successfully');
 
       // Refresh the page
       window.location.reload();
@@ -90,7 +75,6 @@ export default function Form() {
       })
       .then((jsonData) => {
         setData(jsonData);
-        console.log(jsonData);
       })
       .catch((error) => {
         setError(error);

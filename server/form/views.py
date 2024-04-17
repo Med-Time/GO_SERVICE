@@ -28,13 +28,11 @@ def apiOverview(request):
 @api_view(['POST'])
 def form_submit(request):
     if request.method == 'POST':
-        print(request.data)
         serializer = FormDetailSerializer(data = request.data)
         if serializer.is_valid():
             serializer.save()
             return Response("Form submitted successfully", status=status.HTTP_201_CREATED)
         else:
-            print("it is not valid")
             return Response(serializer.errors, status=status.HTTP_400_BAD_REQUEST)
 
 @api_view(['GET'])

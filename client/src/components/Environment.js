@@ -41,7 +41,6 @@ export default function Environment() {
             const responseData = await response.json();
             // }
             const newData = responseData.filter(item => item.status === "Pending" && item.sector === "environment");
-            console.log('New data:', newData);
             setData(newData);
         } catch (error) {
             console.error('Error fetching data:', error);
@@ -96,8 +95,6 @@ export default function Environment() {
     
                     // Delete the image object from Firebase Storage
                     await deleteObject(imageRef);
-    
-                    console.log("Image deleted successfully");
                 } catch (error) {
                     console.error("Error deleting image:", error);
                 }
@@ -134,7 +131,6 @@ export default function Environment() {
                     </div>
                     <div className="file">
                         {item.file ? (
-                            console.log(item.file),
                             <img src={item.file} alt="User Media" onError={(e) => { e.target.onerror = null; e.target.src = "Image/error.png" }} key={item.id}/>
                         ) : (
                             <p>No media available</p>

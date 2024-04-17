@@ -40,7 +40,6 @@ export default function Health() {
             const responseData = await response.json();
             // }
             const newData = responseData.filter(item => item.status === "Pending" && item.sector === "health");
-            console.log('New data:', newData);
             setData(newData);
         } catch (error) {
             console.error('Error fetching data:', error);
@@ -83,14 +82,12 @@ export default function Health() {
             }
             const itemData = await response.json();
             const imageUrl = itemData.file; // Assuming 'file' contains the imageUrl
-            console.log("Deletion of :",imageUrl);
             
             // Delete the image from Firebase Storage
             const deleteImage = async () => {
                 try {
                     // Extract the image path from the URL (assuming the URL format is consistent)
                     const imagePath = imageUrl.split(".com/o/")[1].split("?")[0].replace("%2F", "/");
-                    console.log("Image delete Path:",imagePath);
     
                     // Create a reference to the image object
                     const imageRef = ref(storage, imagePath);
@@ -98,7 +95,6 @@ export default function Health() {
                     // Delete the image object from Firebase Storage
                     await deleteObject(imageRef);
     
-                    console.log("Image deleted successfully");
                 } catch (error) {
                     console.error("Error deleting image:", error);
                 }
@@ -136,7 +132,6 @@ export default function Health() {
                     </div>
                     <div className="file">
                         {item.file ? (
-                            console.log(item.file),
                             <img src={item.file} alt="User Media" onError={(e) => { e.target.onerror = null; e.target.src = "Image/error.png" }} key={item.id}/>
                         ) : (
                             <p>No media available</p>

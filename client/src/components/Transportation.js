@@ -40,7 +40,6 @@ export default function Transportation() {
             const responseData = await response.json();
             // }
             const newData = responseData.filter(item => item.status === "Pending" && item.sector === "transportation");
-            console.log('New data:', newData);
             setData(newData);
         } catch (error) {
             console.error('Error fetching data:', error);
@@ -96,7 +95,6 @@ export default function Transportation() {
                     // Delete the image object from Firebase Storage
                     await deleteObject(imageRef);
     
-                    console.log("Image deleted successfully");
                 } catch (error) {
                     console.error("Error deleting image:", error);
                 }

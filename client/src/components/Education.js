@@ -25,8 +25,6 @@ export default function Education() {
         });
       }, []);
 
-    // for now it is showing all the complaints to the department user
-    // Select the related department and then show the complaints to the department user according to the department
     useEffect(() => {
         fetchData();
     }, []);
@@ -40,7 +38,6 @@ export default function Education() {
             const responseData = await response.json();
             // }
             const newData = responseData.filter(item => item.status === "Pending" && item.sector === "education");
-            console.log('New data:', newData);
             setData(newData);
         } catch (error) {
             console.error('Error fetching data:', error);
@@ -95,8 +92,6 @@ export default function Education() {
     
                     // Delete the image object from Firebase Storage
                     await deleteObject(imageRef);
-    
-                    console.log("Image deleted successfully");
                 } catch (error) {
                     console.error("Error deleting image:", error);
                 }
@@ -117,8 +112,6 @@ export default function Education() {
         }
     };
     
-// Upload the image to the firebase storage and then get the url of the image and then save the url in the database
-// Also show the image in the post
     return (
         <>
         <NavbarLogout />
@@ -134,7 +127,6 @@ export default function Education() {
                     </div>
                     <div className="file">
                         {item.file ? (
-                            console.log(item.file),
                             <img src={item.file} alt="User Media" onError={(e) => { e.target.onerror = null; e.target.src = "Image/error.png" }} key={item.id}/>
                         ) : (
                             <p>No media available</p>

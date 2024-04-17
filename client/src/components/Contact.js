@@ -26,7 +26,6 @@ export default function Contact() {
         formData.set('email', formData.get('email'));
         formData.set('message', formData.get('message'));
         formData.set('wantToHearBack', formData.get('wantToHearBack'));
-        console.log(formData);
 
         try {
             // Make a POST request using fetch
@@ -40,9 +39,6 @@ export default function Contact() {
                 // If not successful, throw an error with the status text
                 throw new Error(`Failed to submit form data: ${response.statusText}`);
             }
-
-            // If successful, log a success message
-            console.log('Form data submitted successfully');
 
         } catch (error) {
             // Catch any errors that occur during the fetch or processing of the response
