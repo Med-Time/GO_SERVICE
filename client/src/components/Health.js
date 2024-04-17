@@ -9,7 +9,7 @@ import {
   import { storage } from "./firebase";
 import NavbarLogout from './NavbarLogout';
 
-export default function Education() {
+export default function Health() {
     const [data, setData] = useState([]);
     const [imageUrls, setImageUrls] = useState([]);
     
@@ -39,7 +39,7 @@ export default function Education() {
             }
             const responseData = await response.json();
             // }
-            const newData = responseData.filter(item => item.status === "Pending" && item.sector === "education");
+            const newData = responseData.filter(item => item.status === "Pending" && item.sector === "health");
             console.log('New data:', newData);
             setData(newData);
         } catch (error) {
@@ -83,12 +83,14 @@ export default function Education() {
             }
             const itemData = await response.json();
             const imageUrl = itemData.file; // Assuming 'file' contains the imageUrl
+            console.log("Deletion of :",imageUrl);
             
             // Delete the image from Firebase Storage
             const deleteImage = async () => {
                 try {
                     // Extract the image path from the URL (assuming the URL format is consistent)
                     const imagePath = imageUrl.split(".com/o/")[1].split("?")[0].replace("%2F", "/");
+                    console.log("Image delete Path:",imagePath);
     
                     // Create a reference to the image object
                     const imageRef = ref(storage, imagePath);
@@ -101,6 +103,8 @@ export default function Education() {
                     console.error("Error deleting image:", error);
                 }
             };
+            const newData = data.filter(item => item.id !== id);
+            setData(newData);
     
             // Delete the item from the backend
             const deleteResponse = await fetch(`http://127.0.0.1:8000/form/delete/${id}`, {
@@ -109,14 +113,12 @@ export default function Education() {
             if (!deleteResponse.ok) {
                 throw new Error('Failed to delete item');
             }
-            
             // If the backend deletion is successful, delete the image from Firebase Storage
             await deleteImage();
         } catch (error) {
             console.error('Error handling rejection:', error);
         }
     };
-    
 // Upload the image to the firebase storage and then get the url of the image and then save the url in the database
 // Also show the image in the post
     return (

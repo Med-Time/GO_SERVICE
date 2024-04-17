@@ -18,14 +18,67 @@ export default function Form() {
     const [imageUrls, setImageUrls] = useState([]);
     
 
-  const uploadFile = () => {
+  const uploadFile = async () => {
+    console.log("This is in first line of upload file.")
     if (imageUpload == null) return;
     const imageRef = ref(storage, `images/${imageUpload.name + v4()}`);
-    uploadBytes(imageRef, imageUpload).then((snapshot) => {
-      getDownloadURL(snapshot.ref).then((url) => {
+     uploadBytes(imageRef, imageUpload).then((snapshot) => {
+    getDownloadURL(snapshot.ref).then((url) => {
+        console.log("This is in get download url function.",url)
         setImageUrls((prev) => [...prev, url]);
       });
     });
+
+      
+    console.log("This is in last line of upload file.")
+  };
+  const handleSubmit = async (event) => {
+    event.preventDefault(); // Prevent the default form submission
+    setIsSubmitted(true); // Set isSubmitted to true
+    // Access form data using event.target
+    const formData = new FormData(event.target);
+    console.log("this is before upload file function");
+    console.log("this is after upload file function");
+    formData.set('name', formData.get('name'));
+    formData.set('phone', formData.get('phone'));
+    formData.set('sector', formData.get('sector'));
+    formData.set('details', formData.get('details'));
+    console.log("this is details : ", formData.get('details'));
+    console.log("this is before set file function");
+    await uploadFile();
+    formData.set('file', imageUrls);
+    console.log("this is after set",imageUrls)
+    console.log("this is after set file function");
+    formData.set('location', formData.get('location'));
+    formData.set('check', formData.get('check'));
+    console.log("This is formdata",formData);
+
+    try {
+      // Make a POST request using fetch
+      const response = await fetch('http://127.0.0.1:8000/form/submit', {
+        method: 'POST',
+        body: formData // Pass the FormData object as the body
+      });
+
+      console.log("This is response: ",response);
+
+      // Check if the request was successful
+      if (!response.ok) {
+        // If not successful, throw an error with the status text
+        throw new Error(`Failed to submit form data: ${response.statusText}`);
+      }
+      // If successful, log a success message
+      console.log('Form data submitted successfully');
+
+      // Refresh the page
+      window.location.reload();
+
+
+      // document.getElementById('myform').reset();
+    } catch (error) {
+      // Catch any errors that occur during the fetch or processing of the response
+      console.error('Error:', error);
+    }
   };
   useEffect(() => {
     fetch('http://127.0.0.1:8000/form/view-list')
@@ -63,7 +116,7 @@ export default function Form() {
     <tr key={item.id}>
       <td>{index + 1}</td>
       <td>{item.name}</td>
-      <td>{item.sector}</td>
+      <td>{item.sector.charAt(0).toUpperCase() + item.sector.slice(1)}</td>
       <td>{item.location}</td>
       <td>{item.date}</td>
       <td>{item.status}</td>
@@ -72,52 +125,7 @@ export default function Form() {
     }
   )
 
-  const handleSubmit = async (event) => {
-    event.preventDefault(); // Prevent the default form submission
-    setIsSubmitted(true); // Set isSubmitted to true
-    // Access form data using event.target
-    const formData = new FormData(event.target);
-    console.log("this is before upload file function");
-    uploadFile();
-    console.log("this is after upload file function");
-    formData.set('name', formData.get('name'));
-    formData.set('phone', formData.get('phone'));
-    formData.set('sector', formData.get('sector'));
-    formData.set('details', formData.get('details'));
-    console.log("this is before set file function");
-    formData.set('file', imageUrls);
-    console.log(imageUrls)
-    console.log("this is after set file function");
-    formData.set('location', formData.get('location'));
-    formData.set('check', formData.get('check'));
-    console.log(formData);
-
-    try {
-      // Make a POST request using fetch
-      const response = await fetch('http://127.0.0.1:8000/form/submit', {
-        method: 'POST',
-        body: formData // Pass the FormData object as the body
-      });
-
-      // Check if the request was successful
-      if (!response.ok) {
-        // If not successful, throw an error with the status text
-        throw new Error(`Failed to submit form data: ${response.statusText}`);
-      }
-
-      // If successful, log a success message
-      console.log('Form data submitted successfully');
-
-      // Refresh the page
-      window.location.reload();
-
-
-      // document.getElementById('myform').reset();
-    } catch (error) {
-      // Catch any errors that occur during the fetch or processing of the response
-      console.error('Error:', error);
-    }
-  };
+ 
   return (
     <div>
       {
@@ -135,7 +143,7 @@ export default function Form() {
                     </div>
                     <div className="mb-3">
                     <label htmlFor="Inputphone" className="form-label text-dark">Phone</label>
-                    <input type="tel" className="form-control" id="Inputphone" name="phone" pattern="[0-9]{10,12}" required />
+                    <input type="tel" className="form-control" id="Inputphone" name="phone" pattern="[+]*[0-9]{10,13}" required />
                     <div id="emailHelp" className="form-text text-dark">We'll never share your details with anyone else.</div>
                     </div>
                     <div className="mb-3">

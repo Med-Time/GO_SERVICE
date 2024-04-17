@@ -6,7 +6,7 @@ from datetime import date
 # Create your models here.
 class formDetails(models.Model):
     name = models.CharField(max_length = 100)
-    phone = models.CharField(max_length = 13)
+    phone = models.CharField(max_length = 15)
     sector = models.CharField(max_length = 100,default="Transportation")
     details = models.CharField(max_length = 1500)
     date = models.DateField(default = date.today)

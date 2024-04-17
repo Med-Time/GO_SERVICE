@@ -1,5 +1,7 @@
 /* eslint-disable react-hooks/rules-of-hooks */
 import React, { useEffect, useState } from 'react';
+import NavbarLogout from './NavbarLogout';
+
 import {
     ref,
     getDownloadURL,
@@ -7,9 +9,8 @@ import {
     deleteObject,
   } from "firebase/storage";
   import { storage } from "./firebase";
-import NavbarLogout from './NavbarLogout';
 
-export default function Education() {
+export default function Environment() {
     const [data, setData] = useState([]);
     const [imageUrls, setImageUrls] = useState([]);
     
@@ -39,7 +40,7 @@ export default function Education() {
             }
             const responseData = await response.json();
             // }
-            const newData = responseData.filter(item => item.status === "Pending" && item.sector === "education");
+            const newData = responseData.filter(item => item.status === "Pending" && item.sector === "environment");
             console.log('New data:', newData);
             setData(newData);
         } catch (error) {
@@ -116,12 +117,11 @@ export default function Education() {
             console.error('Error handling rejection:', error);
         }
     };
-    
 // Upload the image to the firebase storage and then get the url of the image and then save the url in the database
 // Also show the image in the post
     return (
         <>
-        <NavbarLogout />
+        <NavbarLogout/>
             {data.map((item) => (
                 <div className='post' key={item.id}>
 

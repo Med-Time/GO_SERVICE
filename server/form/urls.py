@@ -8,6 +8,6 @@ urlpatterns = [
     path('view-list', view_form_list),
     path('delete/<int:id>', ItemDeleteView.as_view(), name='delete_item'),
     path('update/<int:id>', update_status),
-    # path('view/<str:filename>/', views.get_image, name='get_image'),
+    path('view/<str:id>/', views.get_detail, name='get_detail'),
 ]
 

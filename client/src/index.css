@@ -170,7 +170,12 @@ align-items: start;
  
   .navbar .nav-link {
     font-size: 1rem;
-  } 
+  }
+  .nav-link:hover {
+    color: #007bff;
+    transform: scale(1.025);
+    transition: transform 0.1s ease-in-out;
+  }
   .table{
     width: 100%;
     font-size: smaller;

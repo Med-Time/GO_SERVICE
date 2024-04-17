@@ -1,9 +1,11 @@
 import React from 'react'
 import { Link, NavLink } from 'react-router-dom';
 
-export default function Navbar(props) {
+export default function NavbarLogout() {
   // eslint-disable-next-line react-hooks/rules-of-hooks
-
+  const handleLogout = () => {
+    localStorage.removeItem('token');
+  }
   return (
     <>
       <nav className="navbar navbar-expand-lg navbar-light bg-light p-0 m-0">
@@ -29,15 +31,9 @@ export default function Navbar(props) {
 
               <button className="btn btn-outline-success mx-2" type="button">{props.isLoggedIn ? 'Logout' : 'Login'}</button>
             </Link> */}
-            {props.isLoggedIn ? (
               <Link to="/">
-                <button type="button" className="btn btn-outline-dark" onClick={props.handleLogout} >Log Out</button>
+                <button type="button" className="btn btn-outline-dark" onClick={handleLogout} >Log Out</button>
               </Link>
-            ) : (
-              <Link to="/login">
-                <button type="button" className="btn btn-outline-dark"onClick={props.handleLogin}>Log In</button>
-              </Link>
-            )}
           </div>
         </div>
       </nav>

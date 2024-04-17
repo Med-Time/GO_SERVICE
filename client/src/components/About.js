@@ -7,24 +7,28 @@ export default function About() {
         <div className="container">
             <div className="company">
                 <h2 className='text-center'>About Go Service</h2>
+                <p>Welcome to <b>"GO SERVICE,"</b> where innovation meets community empowerment. At "GO SERVICE,"
+                    we're dedicated to revolutionizing the way individuals interact with their surroundings,
+                    fostering a culture of proactive engagement and positive change.</p>
                 <p className='header'>Company Profile and Brand:</p>
-                <p className='details'>GoService is will boast a user-friendly interface, enabling individuals to
-                    seamlessly request services from the concerned authorities. The project empowers
-                    users to express concerns and provide feedback effortlessly. </p>
+                <p className='details'>Our Project embodies versatility and inclusivity, seamlessly integrating front-end
+                    design, back-end development, and database management. With a focus on efficient service delivery and
+                    user-centric experiences, we empower individuals to raise concerns and contribute to positive change.
+                    From education to healthcare, transportation, and waste management, we cater to diverse societal needs.</p>
 
                 <p className='header'>Company Mission:</p>
-                <p className='details'>GoService is  the project prioritizes scalability and adaptability, ensuring that "GO
-                    SERVICE" can cater to a broad spectrum of services, including but not limited to
-                    education, healthcare, transportation, and waste management. The integration of
-                    geolocation services enhances service accessibility, providing users with localized
-                    and relevant information. </p>
+                <p className='details'>At "GO SERVICE," our mission is to empower individuals and communities by providing 
+                innovative technology-driven solutions that streamline service delivery and foster proactive engagement. 
+                We are committed to bridging the gap between citizens and authorities, enabling seamless communication and 
+                collaboration to address societal needs effectively. Through our user-centric approach, we strive to create 
+                a more connected and responsive society where every voice is heard and every concern addressed.</p>
 
                 <p className='header'>Company Vision:</p>
-                <p className='details'>GoService is This Full Stack project is designed to develop an integrated service delivery
-                    platform that addresses diverse societal needs, providing a streamlined, user
-                    centric experience. It encompasses both front-end and back-end development,
-                    utilizing React.js for the user interface and Node.js and Python for robust server
-                    side functionality.</p>
+                <p className='details'>Our vision at "GO SERVICE" is to create a world where technology serves as a catalyst 
+                for positive social change, driving sustainable development and community empowerment. We envision a future 
+                where individuals have easy access to essential services, regardless of their background or location. 
+                By leveraging cutting-edge technology and fostering a culture of collaboration, we aim to build resilient 
+                communities where people thrive and meaningful progress is achieved.</p>
 
             </div>
             <h2>Our Team</h2>

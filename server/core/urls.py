@@ -14,7 +14,8 @@ Including another URLconf
     2. Add a URL to urlpatterns:  path('blog/', include('blog.urls'))
 """
 from django.contrib import admin
-from django.urls import path, include
+from django.urls import path, include,re_path
+from . import views
 
 # from backend.form.views import get_csrf_token
 
@@ -24,5 +25,8 @@ urlpatterns = [
     path('form/', include('form.urls')),
     path('contact/',include('contact.urls')),
     path('account/',include('account.urls')),
+    re_path('login',views.login),
+    re_path('signup',views.signup),
+    re_path('test_token',views.test_token),
     # path('api/csrf_token', get_csrf_token, name='get_csrf_token'),
 ]

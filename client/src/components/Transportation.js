@@ -9,7 +9,7 @@ import {
   import { storage } from "./firebase";
 import NavbarLogout from './NavbarLogout';
 
-export default function Education() {
+export default function Transportation() {
     const [data, setData] = useState([]);
     const [imageUrls, setImageUrls] = useState([]);
     
@@ -39,7 +39,7 @@ export default function Education() {
             }
             const responseData = await response.json();
             // }
-            const newData = responseData.filter(item => item.status === "Pending" && item.sector === "education");
+            const newData = responseData.filter(item => item.status === "Pending" && item.sector === "transportation");
             console.log('New data:', newData);
             setData(newData);
         } catch (error) {
@@ -116,7 +116,6 @@ export default function Education() {
             console.error('Error handling rejection:', error);
         }
     };
-    
 // Upload the image to the firebase storage and then get the url of the image and then save the url in the database
 // Also show the image in the post
     return (
@@ -134,7 +133,6 @@ export default function Education() {
                     </div>
                     <div className="file">
                         {item.file ? (
-                            console.log(item.file),
                             <img src={item.file} alt="User Media" onError={(e) => { e.target.onerror = null; e.target.src = "Image/error.png" }} key={item.id}/>
                         ) : (
                             <p>No media available</p>

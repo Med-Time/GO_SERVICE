@@ -1,0 +1,19 @@
+POST http://127.0.0.1:8000/signup
+Content-Type: application/json
+
+# {  "email": "subu.cd22@bmsce.ac.in" , "password": "12345"}
+{  "email": "bhishan.cd22@bmsce.ac.in" , "password": "12345"}
+
+###
+
+POST http://127.0.0.1:8000/login
+Content-Type: application/json
+
+# { "email": "anmolbhusal.cd22@bmsce.ac.in", "password": "12345" }
+{ "email": "bhishan.cd22@bmsce.ac.in", "password": "12345" }
+
+### 
+
+GET http://127.0.0.1:8000/test_token
+Content-Type: application/json
+Authorization: token 6702868ab561e8d30246783ca3495e8247d86071
