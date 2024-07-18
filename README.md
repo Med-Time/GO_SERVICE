@@ -77,7 +77,6 @@ The Complaints Management System is a web application developed using Django and
 
 4. **Access the application in your web browser at** `http://localhost:3000`.
 
-## License
 
 
 ## Contributors
