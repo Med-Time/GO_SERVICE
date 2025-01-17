@@ -82,7 +82,7 @@ The Complaints Management System is a web application developed using Django and
 ## Contributors
 
 - [Bhishan Pangeni](https://github.com/bhishanP)
-- [Anmol Bhusal](https://github.com/gitter52490)
+- [Anmol Bhusal](https://github.com/anmol52490)
 - [Sagar Khadka](https://github.com/thisisSagarKhadka)
 
 ## Acknowledgements
